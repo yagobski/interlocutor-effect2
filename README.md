@@ -1,10 +1,4 @@
-# The Interlocutor Effect
 
-**Anonymous code release** for the NeurIPS 2026 submission *"The Interlocutor Effect: How Agentic Framing Changes Privacy Behaviour in Instruction-Tuned LLMs"* (under double-blind review).
-
-This repository contains experiment runners, scenario sets, raw per-model outputs, and statistical pipelines needed to reproduce every numerical claim in the paper. The paper PDF is not included here to comply with double-blind submission policy.
-
----
 
 ## Quick start
 
