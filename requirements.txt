@@ -1,0 +1,27 @@
+# Interlocutor Effect — Dependencies (pinned for reviewer reproducibility)
+# Install with:  pip install -r requirements.txt
+#
+# Versions below are the exact versions used to produce all results
+# referenced in the paper. For best reproducibility, use Python 3.11+ and
+# create a fresh virtualenv before installing.
+
+# ── Core ─────────────────────────────────────────────────────────
+torch==2.11.0
+transformers==5.4.0
+tokenizers==0.22.2
+safetensors==0.7.0
+huggingface_hub==1.8.0
+numpy==2.4.4
+tqdm==4.67.3
+accelerate==1.13.0
+
+# ── Stats + geometry ─────────────────────────────────────────────
+scipy==1.17.1
+scikit-learn==1.8.0        # silhouette score, PCA
+statsmodels==0.14.6        # mixed-effects models (orthogonal ablation)
+
+# ── LoRA fine-tuning (defence experiments) ───────────────────────
+peft==0.18.1
+
+# ── Visualization ────────────────────────────────────────────────
+matplotlib==3.10.8

@@ -1,0 +1,53 @@
+{
+  "AA_output_filter": {
+    "mean_leak_ratio": 0.8456666666666667,
+    "leak_rate": 0.9733333333333334,
+    "n_evals": 150,
+    "mann_whitney_U": 12689.5,
+    "mann_whitney_p": 0.010084855624387204,
+    "reduction_vs_undefended": 0.04688888888888887
+  },
+  "AA_prompt_guardrail": {
+    "mean_leak_ratio": 0.8445555555555555,
+    "leak_rate": 0.9533333333333334,
+    "n_evals": 150,
+    "mann_whitney_U": 12304.5,
+    "mann_whitney_p": 0.04106511852237821,
+    "reduction_vs_undefended": 0.04800000000000004
+  },
+  "AA_undefended": {
+    "mean_leak_ratio": 0.8925555555555555,
+    "leak_rate": 0.9733333333333334,
+    "n_evals": 150,
+    "mann_whitney_U": 0.0,
+    "mann_whitney_p": 1.0,
+    "reduction_vs_undefended": 0.0
+  },
+  "per_vertical": {
+    "corporate": {
+      "AA_output_filter": 0.9133333333333334,
+      "AA_prompt_guardrail": 0.8666666666666667,
+      "AA_undefended": 0.9133333333333334
+    },
+    "finance": {
+      "AA_output_filter": 0.7650000000000001,
+      "AA_prompt_guardrail": 0.8483333333333333,
+      "AA_undefended": 0.9016666666666667
+    },
+    "government": {
+      "AA_output_filter": 0.85,
+      "AA_prompt_guardrail": 0.7477777777777778,
+      "AA_undefended": 0.8833333333333333
+    },
+    "healthcare": {
+      "AA_output_filter": 0.7955555555555556,
+      "AA_prompt_guardrail": 0.8355555555555555,
+      "AA_undefended": 0.8599999999999999
+    },
+    "legal": {
+      "AA_output_filter": 0.9044444444444445,
+      "AA_prompt_guardrail": 0.9244444444444444,
+      "AA_undefended": 0.9044444444444445
+    }
+  }
+}

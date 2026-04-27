@@ -1,0 +1,18 @@
+DETECTOR VALIDATION SUMMARY
+==================================================
+
+Phase 1: Synthetic Ground Truth
+  N cases:         87
+  Field precision: 1.0
+  Field recall:    0.9867
+  Field F1:        0.9933
+  Case precision:  1.0
+  Case recall:     0.9796
+  Case F1:         0.9897
+  Case accuracy:   0.9885
+
+Phase 2: Real Output Audit
+  N outputs:       792
+  Cohen's kappa:   0.9911
+  Agreement rate:  789/792
+  Consistency:     0.9949

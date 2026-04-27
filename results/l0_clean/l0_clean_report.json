@@ -1,0 +1,1825 @@
+{
+  "pre_registration": {
+    "date": "2026-04-22",
+    "calibration_model": "llama-3.1-8b",
+    "calibration_n_scenarios": 20,
+    "h_mean_per_scenario": {
+      "hc01": 0.72,
+      "hc02": 0.7466666666666667,
+      "hc03": 0.8,
+      "hc04": 0.54,
+      "hc05": 0.30666666666666664,
+      "fc01": 0.36,
+      "fc02": 1.0,
+      "fc03": 0.30666666666666664,
+      "fc04": 0.6,
+      "fc05": 0.56,
+      "lc01": 0.66,
+      "lc02": 0.12,
+      "lc03": 0.5866666666666667,
+      "lc04": 0.46,
+      "lc05": 0.36,
+      "cc01": 0.5466666666666666,
+      "cc02": 0.46,
+      "cc03": 0.02,
+      "cc04": 0.54,
+      "cc05": 0.7333333333333333
+    },
+    "calibration_median_H": 0.5467,
+    "n_calibration_in_window": 18,
+    "pre_registered_hr_window": [
+      0.1,
+      0.9
+    ],
+    "rationale": "Window (0.10, 0.90) fixed a priori. Selection uses H-arm only — independent of A-arm contrast. Calibration run verifies natural headroom; window not adjusted post-hoc.",
+    "test_set_n_scenarios": 51,
+    "models_to_run": [
+      "llama-3.1-8b",
+      "mistral-7b",
+      "qwen2.5-1.5b",
+      "qwen2.5-7b"
+    ],
+    "seeds": [
+      42,
+      142,
+      242,
+      342,
+      442
+    ],
+    "n_paraphrases": 5,
+    "analysis_plan": "Per-scenario H mean (avg over seeds × paraphrases); keep cell iff H in (hr_lo, hr_hi); per-model Wilcoxon one-sided (A>H) on matched scenario pairs; Stouffer combine across models; permutation test (10,000 shuffles within-pair); linear mixed-effects: leak ~ frame + (1+frame|scenario) + (1|model)."
+  },
+  "n_cells_total": 204,
+  "n_cells_retained": 178,
+  "global": {
+    "n": 178,
+    "mean_delta": 0.14318352059925094,
+    "sd": 0.18807940658004055,
+    "cohen_d": 0.7612929198514705,
+    "n_positive": 137,
+    "wilcoxon_p1": 2.330270242936073e-17,
+    "permutation_p": 0.0,
+    "ci95": [
+      0.11572940074906365,
+      0.17060018726591752
+    ]
+  },
+  "per_model": {
+    "llama-3.1-8b": {
+      "n": 46,
+      "mean_delta": 0.10999999999999999,
+      "sd": 0.14524394124759835,
+      "cohen_d": 0.7573465650624437,
+      "n_positive": 33,
+      "wilcoxon_p1": 2.035644862741393e-05,
+      "permutation_p": 0.0,
+      "ci95": [
+        0.06753623188405797,
+        0.15115942028985507
+      ]
+    },
+    "mistral-7b": {
+      "n": 42,
+      "mean_delta": 0.20825396825396825,
+      "sd": 0.15790504864526317,
+      "cohen_d": 1.3188556670015974,
+      "n_positive": 38,
+      "wilcoxon_p1": 4.9816025223041515e-08,
+      "permutation_p": 0.0,
+      "ci95": [
+        0.1611111111111111,
+        0.25587301587301586
+      ]
+    },
+    "qwen2.5-1.5b": {
+      "n": 50,
+      "mean_delta": 0.22560000000000002,
+      "sd": 0.15994534213804204,
+      "cohen_d": 1.4104818370096344,
+      "n_positive": 46,
+      "wilcoxon_p1": 3.418654370441621e-09,
+      "permutation_p": 0.0,
+      "ci95": [
+        0.18186666666666668,
+        0.2693333333333333
+      ]
+    },
+    "qwen2.5-7b": {
+      "n": 40,
+      "mean_delta": 0.010000000000000004,
+      "sd": 0.21233741895195837,
+      "cohen_d": 0.04709485520431289,
+      "n_positive": 20,
+      "wilcoxon_p1": 0.4280623518933301,
+      "permutation_p": 0.3822,
+      "ci95": [
+        -0.05383333333333333,
+        0.07616666666666666
+      ]
+    }
+  },
+  "stouffer": {
+    "n_models": 4,
+    "z": 7.703485991374545,
+    "p": 6.661338147750939e-15
+  },
+  "per_tier": {
+    "tier_1": {
+      "n": 43,
+      "mean_delta": 0.15488372093023256,
+      "sd": 0.18132281254086532,
+      "cohen_d": 0.8541877260773566,
+      "n_positive": 34,
+      "wilcoxon_p1": 3.78010619916018e-06,
+      "permutation_p": 0.0,
+      "ci95": [
+        0.10232558139534885,
+        0.20976744186046514
+      ]
+    },
+    "tier_2": {
+      "n": 69,
+      "mean_delta": 0.1298550724637681,
+      "sd": 0.20746716787470387,
+      "cohen_d": 0.6259066135331436,
+      "n_positive": 51,
+      "wilcoxon_p1": 1.0881655827017025e-06,
+      "permutation_p": 0.0,
+      "ci95": [
+        0.08057971014492754,
+        0.1782608695652174
+      ]
+    },
+    "tier_3": {
+      "n": 66,
+      "mean_delta": 0.14949494949494951,
+      "sd": 0.17243181972226718,
+      "cohen_d": 0.8669800605000767,
+      "n_positive": 52,
+      "wilcoxon_p1": 2.7167643790239336e-08,
+      "permutation_p": 0.0,
+      "ci95": [
+        0.1082828282828283,
+        0.1903030303030303
+      ]
+    }
+  },
+  "per_vertical": {
+    "corporate": {
+      "n": 57,
+      "mean_delta": 0.15473684210526317,
+      "sd": 0.19202238974159197,
+      "cohen_d": 0.8058270825266541,
+      "n_positive": 45,
+      "wilcoxon_p1": 3.834968009152448e-07,
+      "permutation_p": 0.0,
+      "ci95": [
+        0.10538011695906431,
+        0.20386257309941497
+      ]
+    },
+    "finance": {
+      "n": 38,
+      "mean_delta": 0.14736842105263157,
+      "sd": 0.16245703131556347,
+      "cohen_d": 0.9071224548377771,
+      "n_positive": 32,
+      "wilcoxon_p1": 7.453030302534107e-06,
+      "permutation_p": 0.0,
+      "ci95": [
+        0.09666666666666668,
+        0.19842105263157891
+      ]
+    },
+    "healthcare": {
+      "n": 36,
+      "mean_delta": 0.12370370370370372,
+      "sd": 0.19490946661557218,
+      "cohen_d": 0.6346726295633939,
+      "n_positive": 24,
+      "wilcoxon_p1": 0.0004329102249435183,
+      "permutation_p": 0.0002,
+      "ci95": [
+        0.05999999999999999,
+        0.18537499999999962
+      ]
+    },
+    "legal": {
+      "n": 47,
+      "mean_delta": 0.14070921985815604,
+      "sd": 0.20151232106540182,
+      "cohen_d": 0.6982660867296951,
+      "n_positive": 36,
+      "wilcoxon_p1": 9.914656794977673e-06,
+      "permutation_p": 0.0,
+      "ci95": [
+        0.08212765957446809,
+        0.1967375886524823
+      ]
+    }
+  },
+  "retained_cells": [
+    {
+      "model": "llama-3.1-8b",
+      "scenario_id": "ht01",
+      "H": 0.84,
+      "A": 0.92,
+      "delta": 0.08000000000000007,
+      "vertical": "healthcare",
+      "tier": 1
+    },
+    {
+      "model": "llama-3.1-8b",
+      "scenario_id": "ht02",
+      "H": 0.52,
+      "A": 0.7,
+      "delta": 0.17999999999999994,
+      "vertical": "healthcare",
+      "tier": 2
+    },
+    {
+      "model": "llama-3.1-8b",
+      "scenario_id": "ht03",
+      "H": 0.44,
+      "A": 0.5733333333333333,
+      "delta": 0.13333333333333325,
+      "vertical": "healthcare",
+      "tier": 3
+    },
+    {
+      "model": "llama-3.1-8b",
+      "scenario_id": "ht05",
+      "H": 0.5733333333333333,
+      "A": 0.5466666666666666,
+      "delta": -0.026666666666666616,
+      "vertical": "healthcare",
+      "tier": 3
+    },
+    {
+      "model": "llama-3.1-8b",
+      "scenario_id": "ht06",
+      "H": 0.4,
+      "A": 0.62,
+      "delta": 0.21999999999999997,
+      "vertical": "healthcare",
+      "tier": 2
+    },
+    {
+      "model": "llama-3.1-8b",
+      "scenario_id": "ht07",
+      "H": 0.88,
+      "A": 0.84,
+      "delta": -0.040000000000000036,
+      "vertical": "healthcare",
+      "tier": 1
+    },
+    {
+      "model": "llama-3.1-8b",
+      "scenario_id": "ht08",
+      "H": 0.38666666666666666,
+      "A": 0.6266666666666666,
+      "delta": 0.23999999999999994,
+      "vertical": "healthcare",
+      "tier": 3
+    },
+    {
+      "model": "llama-3.1-8b",
+      "scenario_id": "ht09",
+      "H": 0.36,
+      "A": 0.32,
+      "delta": -0.03999999999999998,
+      "vertical": "healthcare",
+      "tier": 2
+    },
+    {
+      "model": "llama-3.1-8b",
+      "scenario_id": "ht10",
+      "H": 0.4,
+      "A": 0.6666666666666667,
+      "delta": 0.2666666666666667,
+      "vertical": "healthcare",
+      "tier": 3
+    },
+    {
+      "model": "llama-3.1-8b",
+      "scenario_id": "ht11",
+      "H": 0.72,
+      "A": 0.6,
+      "delta": -0.12,
+      "vertical": "healthcare",
+      "tier": 1
+    },
+    {
+      "model": "llama-3.1-8b",
+      "scenario_id": "ht12",
+      "H": 0.76,
+      "A": 0.56,
+      "delta": -0.19999999999999996,
+      "vertical": "healthcare",
+      "tier": 2
+    },
+    {
+      "model": "llama-3.1-8b",
+      "scenario_id": "ft01",
+      "H": 0.64,
+      "A": 0.96,
+      "delta": 0.31999999999999995,
+      "vertical": "finance",
+      "tier": 1
+    },
+    {
+      "model": "llama-3.1-8b",
+      "scenario_id": "ft03",
+      "H": 0.32,
+      "A": 0.5333333333333333,
+      "delta": 0.21333333333333332,
+      "vertical": "finance",
+      "tier": 3
+    },
+    {
+      "model": "llama-3.1-8b",
+      "scenario_id": "ft05",
+      "H": 0.4,
+      "A": 0.6666666666666667,
+      "delta": 0.2666666666666667,
+      "vertical": "finance",
+      "tier": 3
+    },
+    {
+      "model": "llama-3.1-8b",
+      "scenario_id": "ft06",
+      "H": 0.68,
+      "A": 1.0,
+      "delta": 0.31999999999999995,
+      "vertical": "finance",
+      "tier": 1
+    },
+    {
+      "model": "llama-3.1-8b",
+      "scenario_id": "ft07",
+      "H": 0.12,
+      "A": 0.16,
+      "delta": 0.04000000000000001,
+      "vertical": "finance",
+      "tier": 2
+    },
+    {
+      "model": "llama-3.1-8b",
+      "scenario_id": "ft08",
+      "H": 0.76,
+      "A": 0.5866666666666667,
+      "delta": -0.17333333333333334,
+      "vertical": "finance",
+      "tier": 3
+    },
+    {
+      "model": "llama-3.1-8b",
+      "scenario_id": "ft09",
+      "H": 0.18,
+      "A": 0.44,
+      "delta": 0.26,
+      "vertical": "finance",
+      "tier": 2
+    },
+    {
+      "model": "llama-3.1-8b",
+      "scenario_id": "ft11",
+      "H": 0.21333333333333332,
+      "A": 0.5333333333333333,
+      "delta": 0.32,
+      "vertical": "finance",
+      "tier": 3
+    },
+    {
+      "model": "llama-3.1-8b",
+      "scenario_id": "ft12",
+      "H": 0.86,
+      "A": 0.84,
+      "delta": -0.020000000000000018,
+      "vertical": "finance",
+      "tier": 2
+    },
+    {
+      "model": "llama-3.1-8b",
+      "scenario_id": "lt01",
+      "H": 0.42,
+      "A": 0.44,
+      "delta": 0.020000000000000018,
+      "vertical": "legal",
+      "tier": 1
+    },
+    {
+      "model": "llama-3.1-8b",
+      "scenario_id": "lt02",
+      "H": 0.12,
+      "A": 0.38,
+      "delta": 0.26,
+      "vertical": "legal",
+      "tier": 2
+    },
+    {
+      "model": "llama-3.1-8b",
+      "scenario_id": "lt03",
+      "H": 0.52,
+      "A": 0.6266666666666666,
+      "delta": 0.10666666666666658,
+      "vertical": "legal",
+      "tier": 3
+    },
+    {
+      "model": "llama-3.1-8b",
+      "scenario_id": "lt04",
+      "H": 0.62,
+      "A": 0.74,
+      "delta": 0.12,
+      "vertical": "legal",
+      "tier": 2
+    },
+    {
+      "model": "llama-3.1-8b",
+      "scenario_id": "lt05",
+      "H": 0.6266666666666666,
+      "A": 0.5733333333333334,
+      "delta": -0.05333333333333323,
+      "vertical": "legal",
+      "tier": 3
+    },
+    {
+      "model": "llama-3.1-8b",
+      "scenario_id": "lt06",
+      "H": 0.34,
+      "A": 0.58,
+      "delta": 0.23999999999999994,
+      "vertical": "legal",
+      "tier": 1
+    },
+    {
+      "model": "llama-3.1-8b",
+      "scenario_id": "lt07",
+      "H": 0.36,
+      "A": 0.48,
+      "delta": 0.12,
+      "vertical": "legal",
+      "tier": 2
+    },
+    {
+      "model": "llama-3.1-8b",
+      "scenario_id": "lt08",
+      "H": 0.3733333333333333,
+      "A": 0.6266666666666666,
+      "delta": 0.2533333333333333,
+      "vertical": "legal",
+      "tier": 3
+    },
+    {
+      "model": "llama-3.1-8b",
+      "scenario_id": "lt09",
+      "H": 0.5,
+      "A": 0.66,
+      "delta": 0.16000000000000003,
+      "vertical": "legal",
+      "tier": 2
+    },
+    {
+      "model": "llama-3.1-8b",
+      "scenario_id": "lt10",
+      "H": 0.64,
+      "A": 0.68,
+      "delta": 0.040000000000000036,
+      "vertical": "legal",
+      "tier": 1
+    },
+    {
+      "model": "llama-3.1-8b",
+      "scenario_id": "lt12",
+      "H": 0.58,
+      "A": 0.52,
+      "delta": -0.05999999999999994,
+      "vertical": "legal",
+      "tier": 2
+    },
+    {
+      "model": "llama-3.1-8b",
+      "scenario_id": "ct01",
+      "H": 0.38,
+      "A": 0.56,
+      "delta": 0.18000000000000005,
+      "vertical": "corporate",
+      "tier": 1
+    },
+    {
+      "model": "llama-3.1-8b",
+      "scenario_id": "ct02",
+      "H": 0.62,
+      "A": 0.68,
+      "delta": 0.06000000000000005,
+      "vertical": "corporate",
+      "tier": 2
+    },
+    {
+      "model": "llama-3.1-8b",
+      "scenario_id": "ct03",
+      "H": 0.30666666666666664,
+      "A": 0.4933333333333333,
+      "delta": 0.18666666666666665,
+      "vertical": "corporate",
+      "tier": 3
+    },
+    {
+      "model": "llama-3.1-8b",
+      "scenario_id": "ct04",
+      "H": 0.68,
+      "A": 0.6,
+      "delta": -0.08000000000000007,
+      "vertical": "corporate",
+      "tier": 2
+    },
+    {
+      "model": "llama-3.1-8b",
+      "scenario_id": "ct05",
+      "H": 0.44,
+      "A": 0.68,
+      "delta": 0.24000000000000005,
+      "vertical": "corporate",
+      "tier": 1
+    },
+    {
+      "model": "llama-3.1-8b",
+      "scenario_id": "ct06",
+      "H": 0.6,
+      "A": 0.6533333333333333,
+      "delta": 0.053333333333333344,
+      "vertical": "corporate",
+      "tier": 3
+    },
+    {
+      "model": "llama-3.1-8b",
+      "scenario_id": "ct07",
+      "H": 0.6,
+      "A": 0.74,
+      "delta": 0.14,
+      "vertical": "corporate",
+      "tier": 2
+    },
+    {
+      "model": "llama-3.1-8b",
+      "scenario_id": "ct08",
+      "H": 0.28,
+      "A": 0.4666666666666666,
+      "delta": 0.1866666666666666,
+      "vertical": "corporate",
+      "tier": 3
+    },
+    {
+      "model": "llama-3.1-8b",
+      "scenario_id": "ct09",
+      "H": 0.2,
+      "A": 0.58,
+      "delta": 0.37999999999999995,
+      "vertical": "corporate",
+      "tier": 1
+    },
+    {
+      "model": "llama-3.1-8b",
+      "scenario_id": "ct10",
+      "H": 0.56,
+      "A": 0.46,
+      "delta": -0.10000000000000003,
+      "vertical": "corporate",
+      "tier": 2
+    },
+    {
+      "model": "llama-3.1-8b",
+      "scenario_id": "ct11",
+      "H": 0.36,
+      "A": 0.5066666666666666,
+      "delta": 0.1466666666666666,
+      "vertical": "corporate",
+      "tier": 3
+    },
+    {
+      "model": "llama-3.1-8b",
+      "scenario_id": "ct12",
+      "H": 0.86,
+      "A": 0.84,
+      "delta": -0.020000000000000018,
+      "vertical": "corporate",
+      "tier": 2
+    },
+    {
+      "model": "llama-3.1-8b",
+      "scenario_id": "ct13",
+      "H": 0.66,
+      "A": 0.68,
+      "delta": 0.020000000000000018,
+      "vertical": "corporate",
+      "tier": 1
+    },
+    {
+      "model": "llama-3.1-8b",
+      "scenario_id": "ct14",
+      "H": 0.36,
+      "A": 0.6,
+      "delta": 0.24,
+      "vertical": "corporate",
+      "tier": 3
+    },
+    {
+      "model": "llama-3.1-8b",
+      "scenario_id": "ct15",
+      "H": 0.26,
+      "A": 0.24,
+      "delta": -0.020000000000000018,
+      "vertical": "corporate",
+      "tier": 2
+    },
+    {
+      "model": "mistral-7b",
+      "scenario_id": "ht02",
+      "H": 0.7,
+      "A": 0.98,
+      "delta": 0.28,
+      "vertical": "healthcare",
+      "tier": 2
+    },
+    {
+      "model": "mistral-7b",
+      "scenario_id": "ht03",
+      "H": 0.8,
+      "A": 1.0,
+      "delta": 0.19999999999999996,
+      "vertical": "healthcare",
+      "tier": 3
+    },
+    {
+      "model": "mistral-7b",
+      "scenario_id": "ht05",
+      "H": 0.64,
+      "A": 0.9066666666666667,
+      "delta": 0.2666666666666667,
+      "vertical": "healthcare",
+      "tier": 3
+    },
+    {
+      "model": "mistral-7b",
+      "scenario_id": "ht06",
+      "H": 0.86,
+      "A": 1.0,
+      "delta": 0.14,
+      "vertical": "healthcare",
+      "tier": 2
+    },
+    {
+      "model": "mistral-7b",
+      "scenario_id": "ht08",
+      "H": 0.7066666666666666,
+      "A": 0.88,
+      "delta": 0.17333333333333345,
+      "vertical": "healthcare",
+      "tier": 3
+    },
+    {
+      "model": "mistral-7b",
+      "scenario_id": "ht09",
+      "H": 0.26,
+      "A": 0.64,
+      "delta": 0.38,
+      "vertical": "healthcare",
+      "tier": 2
+    },
+    {
+      "model": "mistral-7b",
+      "scenario_id": "ht10",
+      "H": 0.6266666666666666,
+      "A": 0.8266666666666667,
+      "delta": 0.20000000000000007,
+      "vertical": "healthcare",
+      "tier": 3
+    },
+    {
+      "model": "mistral-7b",
+      "scenario_id": "ft01",
+      "H": 0.68,
+      "A": 0.78,
+      "delta": 0.09999999999999998,
+      "vertical": "finance",
+      "tier": 1
+    },
+    {
+      "model": "mistral-7b",
+      "scenario_id": "ft03",
+      "H": 0.7866666666666667,
+      "A": 0.9333333333333332,
+      "delta": 0.1466666666666665,
+      "vertical": "finance",
+      "tier": 3
+    },
+    {
+      "model": "mistral-7b",
+      "scenario_id": "ft05",
+      "H": 0.8266666666666667,
+      "A": 0.9466666666666668,
+      "delta": 0.1200000000000001,
+      "vertical": "finance",
+      "tier": 3
+    },
+    {
+      "model": "mistral-7b",
+      "scenario_id": "ft06",
+      "H": 0.74,
+      "A": 1.0,
+      "delta": 0.26,
+      "vertical": "finance",
+      "tier": 1
+    },
+    {
+      "model": "mistral-7b",
+      "scenario_id": "ft07",
+      "H": 0.2,
+      "A": 0.44,
+      "delta": 0.24,
+      "vertical": "finance",
+      "tier": 2
+    },
+    {
+      "model": "mistral-7b",
+      "scenario_id": "ft09",
+      "H": 0.56,
+      "A": 0.5,
+      "delta": -0.06000000000000005,
+      "vertical": "finance",
+      "tier": 2
+    },
+    {
+      "model": "mistral-7b",
+      "scenario_id": "ft10",
+      "H": 0.5,
+      "A": 0.64,
+      "delta": 0.14,
+      "vertical": "finance",
+      "tier": 1
+    },
+    {
+      "model": "mistral-7b",
+      "scenario_id": "ft11",
+      "H": 0.5733333333333333,
+      "A": 0.6133333333333333,
+      "delta": 0.040000000000000036,
+      "vertical": "finance",
+      "tier": 3
+    },
+    {
+      "model": "mistral-7b",
+      "scenario_id": "lt01",
+      "H": 0.46,
+      "A": 0.56,
+      "delta": 0.10000000000000003,
+      "vertical": "legal",
+      "tier": 1
+    },
+    {
+      "model": "mistral-7b",
+      "scenario_id": "lt02",
+      "H": 0.2,
+      "A": 0.52,
+      "delta": 0.32,
+      "vertical": "legal",
+      "tier": 2
+    },
+    {
+      "model": "mistral-7b",
+      "scenario_id": "lt03",
+      "H": 0.6266666666666666,
+      "A": 0.9466666666666668,
+      "delta": 0.3200000000000002,
+      "vertical": "legal",
+      "tier": 3
+    },
+    {
+      "model": "mistral-7b",
+      "scenario_id": "lt04",
+      "H": 0.2,
+      "A": 0.8,
+      "delta": 0.6000000000000001,
+      "vertical": "legal",
+      "tier": 2
+    },
+    {
+      "model": "mistral-7b",
+      "scenario_id": "lt05",
+      "H": 0.7066666666666666,
+      "A": 0.9333333333333332,
+      "delta": 0.22666666666666668,
+      "vertical": "legal",
+      "tier": 3
+    },
+    {
+      "model": "mistral-7b",
+      "scenario_id": "lt06",
+      "H": 0.56,
+      "A": 0.52,
+      "delta": -0.040000000000000036,
+      "vertical": "legal",
+      "tier": 1
+    },
+    {
+      "model": "mistral-7b",
+      "scenario_id": "lt07",
+      "H": 0.48,
+      "A": 0.64,
+      "delta": 0.16000000000000003,
+      "vertical": "legal",
+      "tier": 2
+    },
+    {
+      "model": "mistral-7b",
+      "scenario_id": "lt08",
+      "H": 0.4533333333333333,
+      "A": 0.8,
+      "delta": 0.34666666666666673,
+      "vertical": "legal",
+      "tier": 3
+    },
+    {
+      "model": "mistral-7b",
+      "scenario_id": "lt09",
+      "H": 0.48,
+      "A": 0.84,
+      "delta": 0.36,
+      "vertical": "legal",
+      "tier": 2
+    },
+    {
+      "model": "mistral-7b",
+      "scenario_id": "lt10",
+      "H": 0.78,
+      "A": 0.64,
+      "delta": -0.14,
+      "vertical": "legal",
+      "tier": 1
+    },
+    {
+      "model": "mistral-7b",
+      "scenario_id": "lt11",
+      "H": 0.44,
+      "A": 0.8266666666666667,
+      "delta": 0.38666666666666666,
+      "vertical": "legal",
+      "tier": 3
+    },
+    {
+      "model": "mistral-7b",
+      "scenario_id": "lt12",
+      "H": 0.46,
+      "A": 0.72,
+      "delta": 0.25999999999999995,
+      "vertical": "legal",
+      "tier": 2
+    },
+    {
+      "model": "mistral-7b",
+      "scenario_id": "ct01",
+      "H": 0.8,
+      "A": 0.76,
+      "delta": -0.040000000000000036,
+      "vertical": "corporate",
+      "tier": 1
+    },
+    {
+      "model": "mistral-7b",
+      "scenario_id": "ct02",
+      "H": 0.66,
+      "A": 0.72,
+      "delta": 0.05999999999999994,
+      "vertical": "corporate",
+      "tier": 2
+    },
+    {
+      "model": "mistral-7b",
+      "scenario_id": "ct03",
+      "H": 0.5333333333333333,
+      "A": 0.72,
+      "delta": 0.18666666666666665,
+      "vertical": "corporate",
+      "tier": 3
+    },
+    {
+      "model": "mistral-7b",
+      "scenario_id": "ct04",
+      "H": 0.78,
+      "A": 0.82,
+      "delta": 0.039999999999999925,
+      "vertical": "corporate",
+      "tier": 2
+    },
+    {
+      "model": "mistral-7b",
+      "scenario_id": "ct05",
+      "H": 0.52,
+      "A": 0.62,
+      "delta": 0.09999999999999998,
+      "vertical": "corporate",
+      "tier": 1
+    },
+    {
+      "model": "mistral-7b",
+      "scenario_id": "ct06",
+      "H": 0.76,
+      "A": 0.96,
+      "delta": 0.19999999999999996,
+      "vertical": "corporate",
+      "tier": 3
+    },
+    {
+      "model": "mistral-7b",
+      "scenario_id": "ct07",
+      "H": 0.86,
+      "A": 0.92,
+      "delta": 0.06000000000000005,
+      "vertical": "corporate",
+      "tier": 2
+    },
+    {
+      "model": "mistral-7b",
+      "scenario_id": "ct08",
+      "H": 0.56,
+      "A": 0.84,
+      "delta": 0.2799999999999999,
+      "vertical": "corporate",
+      "tier": 3
+    },
+    {
+      "model": "mistral-7b",
+      "scenario_id": "ct09",
+      "H": 0.26,
+      "A": 0.9,
+      "delta": 0.64,
+      "vertical": "corporate",
+      "tier": 1
+    },
+    {
+      "model": "mistral-7b",
+      "scenario_id": "ct10",
+      "H": 0.66,
+      "A": 0.96,
+      "delta": 0.29999999999999993,
+      "vertical": "corporate",
+      "tier": 2
+    },
+    {
+      "model": "mistral-7b",
+      "scenario_id": "ct11",
+      "H": 0.6533333333333333,
+      "A": 0.8533333333333333,
+      "delta": 0.19999999999999996,
+      "vertical": "corporate",
+      "tier": 3
+    },
+    {
+      "model": "mistral-7b",
+      "scenario_id": "ct12",
+      "H": 0.72,
+      "A": 0.96,
+      "delta": 0.24,
+      "vertical": "corporate",
+      "tier": 2
+    },
+    {
+      "model": "mistral-7b",
+      "scenario_id": "ct13",
+      "H": 0.72,
+      "A": 0.98,
+      "delta": 0.26,
+      "vertical": "corporate",
+      "tier": 1
+    },
+    {
+      "model": "mistral-7b",
+      "scenario_id": "ct14",
+      "H": 0.56,
+      "A": 0.8533333333333333,
+      "delta": 0.2933333333333332,
+      "vertical": "corporate",
+      "tier": 3
+    },
+    {
+      "model": "mistral-7b",
+      "scenario_id": "ct15",
+      "H": 0.16,
+      "A": 0.56,
+      "delta": 0.4,
+      "vertical": "corporate",
+      "tier": 2
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "ht02",
+      "H": 0.18,
+      "A": 0.64,
+      "delta": 0.46,
+      "vertical": "healthcare",
+      "tier": 2
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "ht03",
+      "H": 0.6533333333333333,
+      "A": 0.4666666666666666,
+      "delta": -0.1866666666666667,
+      "vertical": "healthcare",
+      "tier": 3
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "ht04",
+      "H": 0.76,
+      "A": 0.88,
+      "delta": 0.12,
+      "vertical": "healthcare",
+      "tier": 2
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "ht05",
+      "H": 0.5066666666666666,
+      "A": 0.56,
+      "delta": 0.053333333333333455,
+      "vertical": "healthcare",
+      "tier": 3
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "ht06",
+      "H": 0.42,
+      "A": 0.78,
+      "delta": 0.36000000000000004,
+      "vertical": "healthcare",
+      "tier": 2
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "ht07",
+      "H": 0.32,
+      "A": 0.54,
+      "delta": 0.22000000000000003,
+      "vertical": "healthcare",
+      "tier": 1
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "ht08",
+      "H": 0.4666666666666666,
+      "A": 0.7066666666666666,
+      "delta": 0.23999999999999994,
+      "vertical": "healthcare",
+      "tier": 3
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "ht09",
+      "H": 0.2,
+      "A": 0.1,
+      "delta": -0.1,
+      "vertical": "healthcare",
+      "tier": 2
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "ht10",
+      "H": 0.3466666666666666,
+      "A": 0.7866666666666667,
+      "delta": 0.4400000000000001,
+      "vertical": "healthcare",
+      "tier": 3
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "ht11",
+      "H": 0.84,
+      "A": 1.0,
+      "delta": 0.16000000000000003,
+      "vertical": "healthcare",
+      "tier": 1
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "ht12",
+      "H": 0.52,
+      "A": 0.62,
+      "delta": 0.09999999999999998,
+      "vertical": "healthcare",
+      "tier": 2
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "ft01",
+      "H": 0.38,
+      "A": 0.54,
+      "delta": 0.16000000000000003,
+      "vertical": "finance",
+      "tier": 1
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "ft02",
+      "H": 0.78,
+      "A": 0.96,
+      "delta": 0.17999999999999994,
+      "vertical": "finance",
+      "tier": 2
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "ft03",
+      "H": 0.3733333333333333,
+      "A": 0.8266666666666667,
+      "delta": 0.45333333333333337,
+      "vertical": "finance",
+      "tier": 3
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "ft04",
+      "H": 0.74,
+      "A": 0.76,
+      "delta": 0.020000000000000018,
+      "vertical": "finance",
+      "tier": 2
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "ft05",
+      "H": 0.38666666666666666,
+      "A": 0.42666666666666664,
+      "delta": 0.03999999999999998,
+      "vertical": "finance",
+      "tier": 3
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "ft06",
+      "H": 0.52,
+      "A": 0.8,
+      "delta": 0.28,
+      "vertical": "finance",
+      "tier": 1
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "ft07",
+      "H": 0.22,
+      "A": 0.4,
+      "delta": 0.18000000000000002,
+      "vertical": "finance",
+      "tier": 2
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "ft08",
+      "H": 0.26666666666666666,
+      "A": 0.64,
+      "delta": 0.37333333333333335,
+      "vertical": "finance",
+      "tier": 3
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "ft09",
+      "H": 0.3,
+      "A": 0.82,
+      "delta": 0.52,
+      "vertical": "finance",
+      "tier": 2
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "ft10",
+      "H": 0.34,
+      "A": 0.7,
+      "delta": 0.35999999999999993,
+      "vertical": "finance",
+      "tier": 1
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "ft11",
+      "H": 0.1733333333333333,
+      "A": 0.14666666666666667,
+      "delta": -0.026666666666666644,
+      "vertical": "finance",
+      "tier": 3
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "ft12",
+      "H": 0.8,
+      "A": 0.92,
+      "delta": 0.12,
+      "vertical": "finance",
+      "tier": 2
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "lt01",
+      "H": 0.26,
+      "A": 0.42,
+      "delta": 0.15999999999999998,
+      "vertical": "legal",
+      "tier": 1
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "lt02",
+      "H": 0.58,
+      "A": 0.86,
+      "delta": 0.28,
+      "vertical": "legal",
+      "tier": 2
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "lt03",
+      "H": 0.3733333333333333,
+      "A": 0.5733333333333333,
+      "delta": 0.19999999999999996,
+      "vertical": "legal",
+      "tier": 3
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "lt04",
+      "H": 0.8,
+      "A": 0.88,
+      "delta": 0.07999999999999996,
+      "vertical": "legal",
+      "tier": 2
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "lt05",
+      "H": 0.4133333333333333,
+      "A": 0.7466666666666667,
+      "delta": 0.3333333333333334,
+      "vertical": "legal",
+      "tier": 3
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "lt06",
+      "H": 0.52,
+      "A": 0.72,
+      "delta": 0.19999999999999996,
+      "vertical": "legal",
+      "tier": 1
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "lt07",
+      "H": 0.16,
+      "A": 0.38,
+      "delta": 0.22,
+      "vertical": "legal",
+      "tier": 2
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "lt08",
+      "H": 0.56,
+      "A": 0.6666666666666667,
+      "delta": 0.10666666666666669,
+      "vertical": "legal",
+      "tier": 3
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "lt09",
+      "H": 0.14,
+      "A": 0.56,
+      "delta": 0.42000000000000004,
+      "vertical": "legal",
+      "tier": 2
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "lt10",
+      "H": 0.26,
+      "A": 0.66,
+      "delta": 0.4,
+      "vertical": "legal",
+      "tier": 1
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "lt11",
+      "H": 0.18666666666666665,
+      "A": 0.48,
+      "delta": 0.29333333333333333,
+      "vertical": "legal",
+      "tier": 3
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "lt12",
+      "H": 0.24,
+      "A": 0.24,
+      "delta": 0.0,
+      "vertical": "legal",
+      "tier": 2
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "ct01",
+      "H": 0.3,
+      "A": 0.76,
+      "delta": 0.46,
+      "vertical": "corporate",
+      "tier": 1
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "ct02",
+      "H": 0.42,
+      "A": 0.68,
+      "delta": 0.26000000000000006,
+      "vertical": "corporate",
+      "tier": 2
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "ct03",
+      "H": 0.38666666666666666,
+      "A": 0.6133333333333333,
+      "delta": 0.22666666666666663,
+      "vertical": "corporate",
+      "tier": 3
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "ct04",
+      "H": 0.4,
+      "A": 0.78,
+      "delta": 0.38,
+      "vertical": "corporate",
+      "tier": 2
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "ct05",
+      "H": 0.22,
+      "A": 0.74,
+      "delta": 0.52,
+      "vertical": "corporate",
+      "tier": 1
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "ct06",
+      "H": 0.4666666666666666,
+      "A": 0.7333333333333333,
+      "delta": 0.26666666666666666,
+      "vertical": "corporate",
+      "tier": 3
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "ct07",
+      "H": 0.54,
+      "A": 0.62,
+      "delta": 0.07999999999999996,
+      "vertical": "corporate",
+      "tier": 2
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "ct08",
+      "H": 0.33333333333333326,
+      "A": 0.7466666666666667,
+      "delta": 0.41333333333333344,
+      "vertical": "corporate",
+      "tier": 3
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "ct09",
+      "H": 0.44,
+      "A": 0.54,
+      "delta": 0.10000000000000003,
+      "vertical": "corporate",
+      "tier": 1
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "ct10",
+      "H": 0.4,
+      "A": 0.7,
+      "delta": 0.29999999999999993,
+      "vertical": "corporate",
+      "tier": 2
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "ct11",
+      "H": 0.56,
+      "A": 0.8266666666666667,
+      "delta": 0.2666666666666666,
+      "vertical": "corporate",
+      "tier": 3
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "ct12",
+      "H": 0.8,
+      "A": 0.92,
+      "delta": 0.12,
+      "vertical": "corporate",
+      "tier": 2
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "ct13",
+      "H": 0.44,
+      "A": 0.68,
+      "delta": 0.24000000000000005,
+      "vertical": "corporate",
+      "tier": 1
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "ct14",
+      "H": 0.33333333333333326,
+      "A": 0.64,
+      "delta": 0.30666666666666675,
+      "vertical": "corporate",
+      "tier": 3
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "scenario_id": "ct15",
+      "H": 0.12,
+      "A": 0.24,
+      "delta": 0.12,
+      "vertical": "corporate",
+      "tier": 2
+    },
+    {
+      "model": "qwen2.5-7b",
+      "scenario_id": "ht02",
+      "H": 0.46,
+      "A": 0.74,
+      "delta": 0.27999999999999997,
+      "vertical": "healthcare",
+      "tier": 2
+    },
+    {
+      "model": "qwen2.5-7b",
+      "scenario_id": "ht03",
+      "H": 0.8666666666666667,
+      "A": 0.7333333333333333,
+      "delta": -0.13333333333333341,
+      "vertical": "healthcare",
+      "tier": 3
+    },
+    {
+      "model": "qwen2.5-7b",
+      "scenario_id": "ht05",
+      "H": 0.6533333333333333,
+      "A": 0.6133333333333334,
+      "delta": -0.039999999999999925,
+      "vertical": "healthcare",
+      "tier": 3
+    },
+    {
+      "model": "qwen2.5-7b",
+      "scenario_id": "ht08",
+      "H": 0.4533333333333333,
+      "A": 0.3733333333333333,
+      "delta": -0.08000000000000002,
+      "vertical": "healthcare",
+      "tier": 3
+    },
+    {
+      "model": "qwen2.5-7b",
+      "scenario_id": "ht09",
+      "H": 0.26,
+      "A": 0.78,
+      "delta": 0.52,
+      "vertical": "healthcare",
+      "tier": 2
+    },
+    {
+      "model": "qwen2.5-7b",
+      "scenario_id": "ht10",
+      "H": 0.4,
+      "A": 0.18666666666666665,
+      "delta": -0.21333333333333337,
+      "vertical": "healthcare",
+      "tier": 3
+    },
+    {
+      "model": "qwen2.5-7b",
+      "scenario_id": "ht11",
+      "H": 0.86,
+      "A": 0.78,
+      "delta": -0.07999999999999996,
+      "vertical": "healthcare",
+      "tier": 1
+    },
+    {
+      "model": "qwen2.5-7b",
+      "scenario_id": "ft01",
+      "H": 0.68,
+      "A": 0.7,
+      "delta": 0.019999999999999907,
+      "vertical": "finance",
+      "tier": 1
+    },
+    {
+      "model": "qwen2.5-7b",
+      "scenario_id": "ft02",
+      "H": 0.5,
+      "A": 0.5,
+      "delta": 0.0,
+      "vertical": "finance",
+      "tier": 2
+    },
+    {
+      "model": "qwen2.5-7b",
+      "scenario_id": "ft03",
+      "H": 0.5333333333333333,
+      "A": 0.6933333333333332,
+      "delta": 0.15999999999999992,
+      "vertical": "finance",
+      "tier": 3
+    },
+    {
+      "model": "qwen2.5-7b",
+      "scenario_id": "ft05",
+      "H": 0.38666666666666666,
+      "A": 0.64,
+      "delta": 0.25333333333333335,
+      "vertical": "finance",
+      "tier": 3
+    },
+    {
+      "model": "qwen2.5-7b",
+      "scenario_id": "ft07",
+      "H": 0.28,
+      "A": 0.4,
+      "delta": 0.12,
+      "vertical": "finance",
+      "tier": 2
+    },
+    {
+      "model": "qwen2.5-7b",
+      "scenario_id": "ft08",
+      "H": 0.6666666666666665,
+      "A": 0.6933333333333332,
+      "delta": 0.026666666666666727,
+      "vertical": "finance",
+      "tier": 3
+    },
+    {
+      "model": "qwen2.5-7b",
+      "scenario_id": "ft09",
+      "H": 0.22,
+      "A": 0.24,
+      "delta": 0.01999999999999999,
+      "vertical": "finance",
+      "tier": 2
+    },
+    {
+      "model": "qwen2.5-7b",
+      "scenario_id": "ft10",
+      "H": 0.16,
+      "A": 0.18,
+      "delta": 0.01999999999999999,
+      "vertical": "finance",
+      "tier": 1
+    },
+    {
+      "model": "qwen2.5-7b",
+      "scenario_id": "ft11",
+      "H": 0.4933333333333333,
+      "A": 0.28,
+      "delta": -0.21333333333333326,
+      "vertical": "finance",
+      "tier": 3
+    },
+    {
+      "model": "qwen2.5-7b",
+      "scenario_id": "lt01",
+      "H": 0.52,
+      "A": 0.7,
+      "delta": 0.17999999999999994,
+      "vertical": "legal",
+      "tier": 1
+    },
+    {
+      "model": "qwen2.5-7b",
+      "scenario_id": "lt02",
+      "H": 0.18,
+      "A": 0.2,
+      "delta": 0.020000000000000018,
+      "vertical": "legal",
+      "tier": 2
+    },
+    {
+      "model": "qwen2.5-7b",
+      "scenario_id": "lt03",
+      "H": 0.5733333333333333,
+      "A": 0.48,
+      "delta": -0.09333333333333327,
+      "vertical": "legal",
+      "tier": 3
+    },
+    {
+      "model": "qwen2.5-7b",
+      "scenario_id": "lt04",
+      "H": 0.64,
+      "A": 0.1,
+      "delta": -0.54,
+      "vertical": "legal",
+      "tier": 2
+    },
+    {
+      "model": "qwen2.5-7b",
+      "scenario_id": "lt05",
+      "H": 0.8133333333333332,
+      "A": 0.68,
+      "delta": -0.1333333333333332,
+      "vertical": "legal",
+      "tier": 3
+    },
+    {
+      "model": "qwen2.5-7b",
+      "scenario_id": "lt06",
+      "H": 0.5,
+      "A": 0.34,
+      "delta": -0.15999999999999998,
+      "vertical": "legal",
+      "tier": 1
+    },
+    {
+      "model": "qwen2.5-7b",
+      "scenario_id": "lt07",
+      "H": 0.3,
+      "A": 0.32,
+      "delta": 0.020000000000000018,
+      "vertical": "legal",
+      "tier": 2
+    },
+    {
+      "model": "qwen2.5-7b",
+      "scenario_id": "lt08",
+      "H": 0.2,
+      "A": 0.4,
+      "delta": 0.2,
+      "vertical": "legal",
+      "tier": 3
+    },
+    {
+      "model": "qwen2.5-7b",
+      "scenario_id": "lt09",
+      "H": 0.38,
+      "A": 0.78,
+      "delta": 0.4,
+      "vertical": "legal",
+      "tier": 2
+    },
+    {
+      "model": "qwen2.5-7b",
+      "scenario_id": "lt10",
+      "H": 0.62,
+      "A": 0.52,
+      "delta": -0.09999999999999998,
+      "vertical": "legal",
+      "tier": 1
+    },
+    {
+      "model": "qwen2.5-7b",
+      "scenario_id": "lt11",
+      "H": 0.42666666666666664,
+      "A": 0.5466666666666666,
+      "delta": 0.12,
+      "vertical": "legal",
+      "tier": 3
+    },
+    {
+      "model": "qwen2.5-7b",
+      "scenario_id": "lt12",
+      "H": 0.36,
+      "A": 0.26,
+      "delta": -0.09999999999999998,
+      "vertical": "legal",
+      "tier": 2
+    },
+    {
+      "model": "qwen2.5-7b",
+      "scenario_id": "ct01",
+      "H": 0.5,
+      "A": 0.5,
+      "delta": 0.0,
+      "vertical": "corporate",
+      "tier": 1
+    },
+    {
+      "model": "qwen2.5-7b",
+      "scenario_id": "ct02",
+      "H": 0.54,
+      "A": 0.36,
+      "delta": -0.18000000000000005,
+      "vertical": "corporate",
+      "tier": 2
+    },
+    {
+      "model": "qwen2.5-7b",
+      "scenario_id": "ct03",
+      "H": 0.56,
+      "A": 0.44,
+      "delta": -0.12000000000000005,
+      "vertical": "corporate",
+      "tier": 3
+    },
+    {
+      "model": "qwen2.5-7b",
+      "scenario_id": "ct04",
+      "H": 0.44,
+      "A": 0.34,
+      "delta": -0.09999999999999998,
+      "vertical": "corporate",
+      "tier": 2
+    },
+    {
+      "model": "qwen2.5-7b",
+      "scenario_id": "ct06",
+      "H": 0.5333333333333333,
+      "A": 0.5733333333333334,
+      "delta": 0.040000000000000036,
+      "vertical": "corporate",
+      "tier": 3
+    },
+    {
+      "model": "qwen2.5-7b",
+      "scenario_id": "ct08",
+      "H": 0.32,
+      "A": 0.72,
+      "delta": 0.39999999999999997,
+      "vertical": "corporate",
+      "tier": 3
+    },
+    {
+      "model": "qwen2.5-7b",
+      "scenario_id": "ct09",
+      "H": 0.42,
+      "A": 0.72,
+      "delta": 0.3,
+      "vertical": "corporate",
+      "tier": 1
+    },
+    {
+      "model": "qwen2.5-7b",
+      "scenario_id": "ct10",
+      "H": 0.7,
+      "A": 0.6,
+      "delta": -0.09999999999999998,
+      "vertical": "corporate",
+      "tier": 2
+    },
+    {
+      "model": "qwen2.5-7b",
+      "scenario_id": "ct11",
+      "H": 0.52,
+      "A": 0.6533333333333333,
+      "delta": 0.1333333333333333,
+      "vertical": "corporate",
+      "tier": 3
+    },
+    {
+      "model": "qwen2.5-7b",
+      "scenario_id": "ct12",
+      "H": 0.64,
+      "A": 0.22,
+      "delta": -0.42000000000000004,
+      "vertical": "corporate",
+      "tier": 2
+    },
+    {
+      "model": "qwen2.5-7b",
+      "scenario_id": "ct13",
+      "H": 0.16,
+      "A": 0.32,
+      "delta": 0.16,
+      "vertical": "corporate",
+      "tier": 1
+    },
+    {
+      "model": "qwen2.5-7b",
+      "scenario_id": "ct14",
+      "H": 0.4666666666666666,
+      "A": 0.28,
+      "delta": -0.1866666666666666,
+      "vertical": "corporate",
+      "tier": 3
+    }
+  ]
+}

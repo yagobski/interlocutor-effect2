@@ -1,0 +1,75 @@
+{
+  "model": {
+    "id": "meta-llama/Llama-3.1-8B-Instruct",
+    "tag": "llama-3.1-8b",
+    "family": "Llama",
+    "params": "8B",
+    "mode": "local",
+    "infra": "Apple M-series (MPS) / NVIDIA A100",
+    "mechanistic": true
+  },
+  "stats": {
+    "mode": "floor_control",
+    "cell_means": {
+      "HA": {
+        "mean": 0.8165277777777777,
+        "std": 0.24830420028513528,
+        "n": 120
+      },
+      "AA": {
+        "mean": 0.8609722222222221,
+        "std": 0.22848602342531993,
+        "n": 120
+      },
+      "HF": {
+        "mean": 0.008333333333333333,
+        "std": 0.054361586371528305,
+        "n": 120
+      },
+      "AF": {
+        "mean": 0.028055555555555556,
+        "std": 0.11659628395848956,
+        "n": 120
+      }
+    },
+    "comparisons": {
+      "HA_vs_HF": {
+        "delta": -0.8081944444444444,
+        "wilcoxon_p": 3.1375054432702915e-08,
+        "mann_whitney_p": 6.137671261733208e-16,
+        "cohens_d": -3.2809278491036142
+      },
+      "AA_vs_AF": {
+        "delta": -0.8329166666666667,
+        "wilcoxon_p": 2.1953986090490027e-08,
+        "mann_whitney_p": 2.7227516188923916e-15,
+        "cohens_d": -3.51953689296697
+      },
+      "HF_vs_AF": {
+        "delta": 0.019722222222222224,
+        "wilcoxon_p": 0.08865923208274724,
+        "mann_whitney_p": 0.031275483226157814,
+        "cohens_d": 0.27281007967461735
+      },
+      "HA_vs_AA": {
+        "delta": 0.04444444444444451,
+        "wilcoxon_p": 0.06833912006793963,
+        "mann_whitney_p": 0.2882867930406585,
+        "cohens_d": 0.22918388365077622
+      }
+    },
+    "floor_analysis": {
+      "ha_baseline": 0.8165277777777777,
+      "hf_floor": 0.008333333333333333,
+      "aa_baseline": 0.8609722222222221,
+      "af_floor": 0.028055555555555556,
+      "floor_gap": 0.8081944444444444,
+      "ie_raw": 0.0444444444444444,
+      "ie_normalized": 0.0549922667124935,
+      "ie_under_prohibition": 0.019722222222222224
+    }
+  },
+  "n_evaluations": 480,
+  "mode": "floor",
+  "timestamp": "2026-04-08 02:56:08"
+}

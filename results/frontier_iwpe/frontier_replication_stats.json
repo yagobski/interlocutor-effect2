@@ -1,0 +1,54 @@
+{
+  "per_model": {
+    "openai/gpt-4o": {
+      "n_scenarios": 222,
+      "human_mean": 0.8716216216216216,
+      "agent_mean": 0.9301801801801802,
+      "delta_pp": 5.855855855855863,
+      "cohens_d": 0.24256991556591403,
+      "wilcoxon_p_one_sided_greater": 0.0007122451856167147,
+      "bootstrap_ci_95_pp": [
+        2.4774774774774775,
+        9.45945945945946
+      ]
+    },
+    "anthropic/claude-3.5-sonnet": {
+      "n_scenarios": 222,
+      "human_mean": 0.8468468468468469,
+      "agent_mean": 0.9346846846846847,
+      "delta_pp": 8.783783783783782,
+      "cohens_d": 0.3650136370390618,
+      "wilcoxon_p_one_sided_greater": 6.973331475105528e-07,
+      "bootstrap_ci_95_pp": [
+        5.63063063063063,
+        12.387387387387387
+      ]
+    },
+    "meta-llama/llama-3.3-70b-instruct": {
+      "n_scenarios": 222,
+      "human_mean": 0.6869369369369369,
+      "agent_mean": 0.7545045045045045,
+      "delta_pp": 6.756756756756754,
+      "cohens_d": 0.20218566021958123,
+      "wilcoxon_p_one_sided_greater": 0.004525621735852805,
+      "bootstrap_ci_95_pp": [
+        1.8018018018018018,
+        11.936936936936938
+      ]
+    },
+    "mistralai/mistral-large-2411": {
+      "n_scenarios": 200,
+      "human_mean": 0.92,
+      "agent_mean": 0.945,
+      "delta_pp": 2.499999999999991,
+      "cohens_d": 0.13275200939031395,
+      "wilcoxon_p_one_sided_greater": 0.03854993587177086,
+      "bootstrap_ci_95_pp": [
+        -0.25,
+        5.25
+      ]
+    }
+  },
+  "source": "IWPE 2026 companion submission, benchmark.json (n=3476 evaluations, 4 frontier models x 4 conditions x 4 verticals)",
+  "note": "Paired-scenario agent vs human means; 2x2 Interlocutor(Human/Agent) x Format(Text/JSON) collapsed on Interlocutor axis"
+}

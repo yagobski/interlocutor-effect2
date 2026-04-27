@@ -1,0 +1,52 @@
+{
+  "pre_registration": {
+    "date": "2026-04-22",
+    "calibration_model": "llama-3.1-8b",
+    "calibration_n_scenarios": 20,
+    "h_mean_per_scenario": {
+      "hc01": 0.72,
+      "hc02": 0.7466666666666667,
+      "hc03": 0.8,
+      "hc04": 0.54,
+      "hc05": 0.30666666666666664,
+      "fc01": 0.36,
+      "fc02": 1.0,
+      "fc03": 0.30666666666666664,
+      "fc04": 0.6,
+      "fc05": 0.56,
+      "lc01": 0.66,
+      "lc02": 0.12,
+      "lc03": 0.5866666666666667,
+      "lc04": 0.46,
+      "lc05": 0.36,
+      "cc01": 0.5466666666666666,
+      "cc02": 0.46,
+      "cc03": 0.02,
+      "cc04": 0.54,
+      "cc05": 0.7333333333333333
+    },
+    "calibration_median_H": 0.5467,
+    "n_calibration_in_window": 18,
+    "pre_registered_hr_window": [
+      0.1,
+      0.9
+    ],
+    "rationale": "Window (0.10, 0.90) fixed a priori. Selection uses H-arm only — independent of A-arm contrast. Calibration run verifies natural headroom; window not adjusted post-hoc.",
+    "test_set_n_scenarios": 51,
+    "models_to_run": [
+      "llama-3.1-8b",
+      "mistral-7b",
+      "qwen2.5-1.5b",
+      "qwen2.5-7b"
+    ],
+    "seeds": [
+      42,
+      142,
+      242,
+      342,
+      442
+    ],
+    "n_paraphrases": 5,
+    "analysis_plan": "Per-scenario H mean (avg over seeds × paraphrases); keep cell iff H in (hr_lo, hr_hi); per-model Wilcoxon one-sided (A>H) on matched scenario pairs; Stouffer combine across models; permutation test (10,000 shuffles within-pair); linear mixed-effects: leak ~ frame + (1+frame|scenario) + (1|model)."
+  }
+}

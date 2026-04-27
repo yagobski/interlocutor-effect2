@@ -1,0 +1,91 @@
+{
+  "model": {
+    "id": "mistralai/Mistral-7B-Instruct-v0.3",
+    "tag": "mistral-7b",
+    "family": "Mistral",
+    "params": "7B",
+    "mode": "local",
+    "infra": "NVIDIA L4 GPU",
+    "mechanistic": true
+  },
+  "stats": {
+    "ha_mean": 0.9653333333333333,
+    "aa_mean": 0.9486666666666668,
+    "delta_IE_ambig": -0.016666666666666666,
+    "wilcoxon_p": 1.0,
+    "wilcoxon_W": 0.0,
+    "mann_whitney_U": 1170.0,
+    "mann_whitney_p": 0.8020735135486188,
+    "cohens_d": -0.1678041150789664,
+    "bootstrap_ci_95": [
+      -0.040008333333333326,
+      0.0029999999999999983
+    ],
+    "rates": {
+      "HC": 0.24,
+      "HD": 1.0,
+      "HA": 1.0,
+      "AC": 0.0,
+      "AD": 0.98,
+      "AA": 1.0
+    },
+    "mean_ratios": {
+      "HC": 0.13566666666666666,
+      "HD": 0.9556666666666667,
+      "HA": 0.9653333333333333,
+      "AC": 0.0,
+      "AD": 0.96,
+      "AA": 0.9486666666666668
+    },
+    "discretion_tests": {
+      "AC_vs_HC": 1.0,
+      "AD_vs_HD": 1.0
+    },
+    "per_vertical": {
+      "corporate": {
+        "mean_HA": 0.96,
+        "mean_AA": 0.9066666666666666,
+        "delta_IE": -0.053333333333333344
+      },
+      "finance": {
+        "mean_HA": 0.9600000000000002,
+        "mean_AA": 0.9350000000000002,
+        "delta_IE": -0.025000000000000022
+      },
+      "government": {
+        "mean_HA": 1.0,
+        "mean_AA": 0.975,
+        "delta_IE": -0.025000000000000022
+      },
+      "healthcare": {
+        "mean_HA": 0.9266666666666667,
+        "mean_AA": 0.9466666666666667,
+        "delta_IE": 0.019999999999999907
+      },
+      "legal": {
+        "mean_HA": 0.9800000000000001,
+        "mean_AA": 0.9800000000000001,
+        "delta_IE": 0.0
+      }
+    },
+    "per_tier": {
+      "1": {
+        "mean_HA": 1.0,
+        "mean_AA": 1.0,
+        "delta_IE": 0.0
+      },
+      "2": {
+        "mean_HA": 0.9814814814814814,
+        "mean_AA": 0.9629629629629629,
+        "delta_IE": -0.01851851851851849
+      },
+      "3": {
+        "mean_HA": 0.9176470588235295,
+        "mean_AA": 0.888235294117647,
+        "delta_IE": -0.02941176470588247
+      }
+    }
+  },
+  "n_evaluations": 300,
+  "timestamp": "2026-03-29 21:51:53"
+}

@@ -1,0 +1,72 @@
+{
+  "rates": {
+    "HN": 0.8779166666666666,
+    "AN": 0.9056944444444445,
+    "HP": 0.8829166666666666,
+    "AP": 0.9031944444444444
+  },
+  "comparisons": {
+    "neutral_destination": {
+      "label": "Neutral: Human→Agent destination",
+      "c1": "HN",
+      "c2": "AN",
+      "c1_mean": 0.8779166666666666,
+      "c2_mean": 0.9056944444444445,
+      "delta": 0.027777777777777783,
+      "wilcoxon_p": 0.2109375,
+      "wilcoxon_W": 8.5,
+      "mann_whitney_p": 0.5449843202104473,
+      "mann_whitney_U": 7467.5,
+      "cohens_d": 0.15672522063645644,
+      "bootstrap_ci_95": [
+        -0.004999999999999996,
+        0.06611111111111112
+      ]
+    },
+    "privacy_destination": {
+      "label": "Privacy: Human→Agent destination",
+      "c1": "HP",
+      "c2": "AP",
+      "c1_mean": 0.8829166666666666,
+      "c2_mean": 0.9031944444444444,
+      "delta": 0.020277777777777777,
+      "wilcoxon_p": 0.08203125,
+      "wilcoxon_W": 7.5,
+      "mann_whitney_p": 0.4638475117579647,
+      "mann_whitney_U": 7525.0,
+      "cohens_d": 0.11849138165446024,
+      "bootstrap_ci_95": [
+        0.0008333333333333289,
+        0.04305555555555555
+      ]
+    }
+  },
+  "pooled": {
+    "human_mean": 0.8804166666666666,
+    "agent_mean": 0.9044444444444444,
+    "delta": 0.024027777777777787,
+    "wilcoxon_p": 0.0185546875,
+    "wilcoxon_W": 7.0,
+    "cohens_d": 0.137913299721117
+  },
+  "per_tier": {
+    "T1": {
+      "human_mean": 1.0,
+      "agent_mean": 1.0,
+      "delta": 0.0
+    },
+    "T2": {
+      "human_mean": 0.9111111111111111,
+      "agent_mean": 0.9351851851851852,
+      "delta": 0.024074074074074137
+    },
+    "T3": {
+      "human_mean": 0.7346153846153846,
+      "agent_mean": 0.7807692307692308,
+      "delta": 0.04615384615384621
+    }
+  },
+  "n_scenarios": 40,
+  "n_seeds": 3,
+  "n_evaluations": 480
+}

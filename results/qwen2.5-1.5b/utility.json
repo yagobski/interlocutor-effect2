@@ -1,0 +1,17 @@
+{
+  "baseline": {
+    "mmlu": 0.68,
+    "humaneval": 0.46,
+    "mtbench": 7.4
+  },
+  "targeted_lora": {
+    "mmlu": 0.67,
+    "humaneval": 0.34,
+    "mtbench": 6.675
+  },
+  "global_lora": {
+    "mmlu": 0.65,
+    "humaneval": 0.22,
+    "mtbench": 5.2
+  }
+}
